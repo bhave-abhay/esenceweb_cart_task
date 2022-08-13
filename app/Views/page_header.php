@@ -15,7 +15,7 @@
                     <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="32" height="32">
                 </a>
                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                    <li><a class="dropdown-item" href="#">My Cart</a></li>
+                    <li><a class="dropdown-item" href="Cart">My Cart</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="#">Sign out</a></li>
                 </ul>
