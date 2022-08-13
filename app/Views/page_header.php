@@ -8,7 +8,7 @@
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="Home" class="nav-link px-2 link-dark<?= (($sNavLink??'')=='Home' ? 'active' : '') ?>">Home</a></li>
                 <li><a href="Products" class="nav-link px-2 link-dark<?= (($sNavLink??'')=='Products' ? 'active' : '') ?>">Products</a></li>
-                <li><a href="#" class="nav-link px-2 link-dark<?= (($sNavLink??'')=='Log In' ? 'active' : '') ?>">Log In</a></li>
+                <li><a href="Login" class="nav-link px-2 link-dark<?= (($sNavLink??'')=='Log In' ? 'active' : '') ?>">Log In</a></li>
             </ul>
             <div class="dropdown text-end">
                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
