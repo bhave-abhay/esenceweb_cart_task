@@ -2,5 +2,5 @@
     <!-- CONTENT -->
 
     <div class="container">
-        <h3><?= $sData1 ?></h3>
+        <h3><?= $userData['sUserName'] ?></h3>
     </div>

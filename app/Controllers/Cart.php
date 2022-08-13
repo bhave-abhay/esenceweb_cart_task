@@ -6,15 +6,20 @@ class Cart extends BaseController
 {
     public function index()
     {
+        $session = session();
+        if(!$session->has('user')) {
+            return redirect()->to('/Home');
+        }
+
         return $this->composePage(
-            'product_list',
+            'cart',
             [
                 'arrHeadData' => [
                     'sPageTitle' => 'CodeIgniter Sample Page'
                 ],
                 'arrPageData' => [
                     'sNavLink' => 'Cart', //Not actually on NAV
-                    'sData1' => 'Cart Item List goes here...'
+                    'userData' => $session->get('user')
                 ],
                 'arrFootData' => [
                     'arrScript' => [
