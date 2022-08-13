@@ -2,19 +2,19 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+class Products extends BaseController
 {
     public function index()
     {
         return $this->composePage(
-            'welcome_message',
+            'product_list',
             [
                 'arrHeadData' => [
                     'sPageTitle' => 'CodeIgniter Sample Page'
                 ],
                 'arrPageData' => [
-                    'sNavLink' => 'Home',
-                    'sData1' => 'Abhay'
+                    'sNavLink' => 'Products',
+                    'sData1' => 'Product List goes here...'
                 ],
                 'arrFootData' => [
                     'arrScript' => [

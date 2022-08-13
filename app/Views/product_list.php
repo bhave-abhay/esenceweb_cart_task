@@ -2,7 +2,7 @@
     <!-- CONTENT -->
 
     <div class="container">
-        <h2>Hello <?= $sData1 ?></h2>
+        <h3><?= $sData1 ?></h3>
     </div>
 
 </div>

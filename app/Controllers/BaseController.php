@@ -49,4 +49,13 @@ abstract class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
     }
+
+    public function composePage($pageView, $arrData)
+    {
+        return view('html_head', $arrData['arrHeadData'])
+            . view('page_header', $arrData['arrPageData'])
+            . view($pageView, $arrData['arrPageData'])
+            . view('page_footer', $arrData['arrPageData'])
+            . view('html_foot', $arrData['arrFootData']);
+    }
 }
