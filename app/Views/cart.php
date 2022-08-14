@@ -2,5 +2,5 @@
     <!-- CONTENT -->
 
     <div class="container">
-        <h3><?= $userData['sUserName'] ?></h3>
+        <pre><?php print_r($userData) ?></pre>
     </div>

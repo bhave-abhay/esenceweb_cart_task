@@ -6,11 +6,20 @@ class Cart extends BaseController
 {
     public function index()
     {
-        $session = session();
-        if(!$session->has('user')) {
-            return redirect()->to('/Home');
-        }
+        // TODO: FILTER??
+        {
+            $session = session();
+            if(!$session->has('session')) {
+                return redirect()->to('/Home');
+            }
+            $sessionInfo = $session->get('session');
+            $modelSession = model('App\Models\SessionModel');
+            $activeSession = $modelSession->getActiveSessionByID($sessionInfo['uidPK']); // TODO: (uid, salt) ---> suid
 
+            if($activeSession==null) {
+                return redirect()->to('/Home');
+            }
+        }
         return $this->composePage(
             'cart',
             [
@@ -19,7 +28,7 @@ class Cart extends BaseController
                 ],
                 'arrPageData' => [
                     'sNavLink' => 'Cart', //Not actually on NAV
-                    'userData' => $session->get('user')
+                    'userData' => $activeSession ?? "NULL"
                 ],
                 'arrFootData' => [
                     'arrScript' => [

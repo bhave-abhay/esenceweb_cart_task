@@ -15,17 +15,25 @@ class Auth extends BaseController
 			($creds['sPassHash'] ?? '') != ''
 		) {
 			//Success
+            $modelSession = model('App\Models\SessionModel');
+            $activeSession = $modelSession->getActiveSessionByUserName($creds['sUserName']);
+            if($activeSession==null) {
+                $activeSession = $modelSession->createSession(
+                    $creds['sUserName'],
+                    $this->request->getUserAgent() . "|" . $this->request->getIpAddress()
+                );
+            }
 
 			$session = session();
 
-			$session->set('user', $creds);
+			$session->set('session', $activeSession);
 
 			$respData['status'] = [
 				'errcode' => 0,
 				'message' => 'SUCCESS'
 			];
 			$respData['data'] = [
-				'sUserName' => $creds['sUserName']
+				'session' => $activeSession
 			];
 		}
 		else {
@@ -41,7 +49,12 @@ class Auth extends BaseController
 	public function logout()
 	{
 		$session = session();
-		$session->remove('user');
+        if($session->has('session')) {
+            $sessionInfo = $session->get('session');
+            $modelSession = model('App\Models\SessionModel');
+            $activeSession = $modelSession->endSession($sessionInfo['uidPK']);
+            $sessionInfo = $session->remove('session');
+        }
 		return redirect()->route('Home');
 	}
 }

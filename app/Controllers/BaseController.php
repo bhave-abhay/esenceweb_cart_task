@@ -53,9 +53,12 @@ abstract class BaseController extends Controller
     public function composePage($pageView, $arrData)
     {
         $session = session();
-        if($session->has('user')) {
-            $userData = $session->get('user');
-            $arrData['arrPageData']['userData'] = $userData;
+        if($session->has('session')) {
+            $userData = $session->get('session');
+            echo "<hr><pre>";
+            print_r($userData);
+            echo "</pre><hr>";
+            $arrData['arrPageData']['session'] = $userData;
         }
         return view('html_head', $arrData['arrHeadData'])
             . view('page_header', $arrData['arrPageData'])
