@@ -2,5 +2,6 @@
     <!-- CONTENT -->
 
     <div class="container">
-        <h3><?= $sData1 ?></h3>
+        <h3>Product list</h3>
+        
     </div>
