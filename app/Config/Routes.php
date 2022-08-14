@@ -44,7 +44,7 @@ $routes->get('/Cart', 'Cart::index');
 $routes->post('/API/Auth/login', 'API\Auth::login');
 $routes->get('/API/Auth/logout', 'API\Auth::logout');
 
-
+$routes->resource('/API/Products', ['controller' => 'API\Products']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing
