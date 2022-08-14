@@ -59,6 +59,7 @@ abstract class BaseController extends Controller
             print_r($userData);
             echo "</pre><hr>";
             $arrData['arrPageData']['session'] = $userData;
+            $arrData['arrHeadData']['session'] = $userData;
         }
         return view('html_head', $arrData['arrHeadData'])
             . view('page_header', $arrData['arrPageData'])

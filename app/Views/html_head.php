@@ -14,6 +14,14 @@
         <link
             rel="stylesheet"
             href="Resources/DataTables/datatables.min.css"/>
+    <script type="text/javascript">
+        const SESSION_ID = <?php if(isset($session)) :?>
+        '<?= $session['uidPK'] ?>'
+        <?php else : ?>
+        null
+        <?php endif; ?>
+        ;
+    </script>
 </head>
 <body>
     <div class="container-fluid"><!-- START OF MAIN CONTAINER -->
