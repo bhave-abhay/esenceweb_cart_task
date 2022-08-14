@@ -62,7 +62,7 @@ class Products extends ResourceController
 		$modelProduct = model('App\Models\ProductModel');
 		$arrProductInfo = $modelProduct->getWhere(
 			['sName' => $this->request->getVar('sName')]
-		)->getResult();
+		)->getResultArray();
 		$productInfo = null;
 		foreach ($arrProductInfo as $info) {
 			if(($info['bStatus'] & StatusConstants::ACTIVE) != 0) {
