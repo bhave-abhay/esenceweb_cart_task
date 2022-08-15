@@ -1,6 +1,6 @@
 $(function () {
 
-	$.ajax("http://localhost/esenceweb_cart_task/API/Cart/myCart").then(
+	$.ajax(SITE_URL + "/API/Cart/myCart").then(
 		(rsp) => {
 			var renderQuantityColumn = function (data, type, row, meta ) {
 				if(type=='display'){
@@ -31,7 +31,7 @@ $(function () {
 			});
 
 			var refreshData = function() {
-				$.ajax("http://localhost/esenceweb_cart_task/API/Cart/myCart").then(
+				$.ajax(SITE_URL + "/API/Cart/myCart").then(
 					(rsp) => {
 						tblCart.clear();
 						tblCart.rows.add(rsp.data.arrCartProductInfo);
@@ -46,7 +46,7 @@ $(function () {
 				// alert(JSON.stringify(rowData));
 				$.ajax({
 					method: "POST",
-					url: "http://localhost/esenceweb_cart_task/API/Cart/removeProductFromCart",
+					url: SITE_URL + "/API/Cart/removeProductFromCart",
 					data: { uidProductFK: rowData.uidProductPK, nQuantity: 1 }
 				})
 				.done(function(rsp) {
@@ -61,7 +61,7 @@ $(function () {
 				// alert(JSON.stringify(rowData));
 				$.ajax({
 					method: "POST",
-					url: "http://localhost/esenceweb_cart_task/API/Cart/addProductToCart",
+					url: SITE_URL + "k/API/Cart/addProductToCart",
 					data: { uidProductFK: rowData.uidProductPK, nQuantity: 1 }
 				})
 				.done(function(rsp) {
@@ -78,7 +78,7 @@ $(function () {
 				// alert(JSON.stringify(rowData));
 				$.ajax({
 					method: "POST",
-					url: "http://localhost/esenceweb_cart_task/API/Cart/removeProductFromCart",
+					url: SITE_URL + "/API/Cart/removeProductFromCart",
 					data: { uidProductFK: rowData.uidProductPK, nQuantity: rowData.nQuantity }
 				})
 				.done(function(rsp) {

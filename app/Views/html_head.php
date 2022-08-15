@@ -21,6 +21,8 @@
         null
         <?php endif; ?>
         ;
+
+        const SITE_URL = '<?= $JSConfig['BaseUrl'] ?>';
     </script>
 </head>
 <body>

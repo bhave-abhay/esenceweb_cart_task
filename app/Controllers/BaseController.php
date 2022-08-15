@@ -60,6 +60,9 @@ abstract class BaseController extends Controller
             // echo "</pre><hr>";
             $arrData['arrPageData']['session'] = $userData;
             $arrData['arrHeadData']['session'] = $userData;
+            $arrData['arrHeadData']['JSConfig'] = [
+                'BaseUrl' => base_url('/')
+            ];
         }
         return view('html_head', $arrData['arrHeadData'])
             . view('page_header', $arrData['arrPageData'])
