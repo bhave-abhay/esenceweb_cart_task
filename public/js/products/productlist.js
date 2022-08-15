@@ -28,7 +28,16 @@ $(function () {
 			});
 			$('#tblProducts').on('click', '.btn-add-product-to-cart', function(event) {
 				var rowData = tblProducts.row($(event.target).closest('tr')).data();
-				alert(JSON.stringify(rowData));
+				// alert(JSON.stringify(rowData));
+				$.ajax({
+					method: "POST",
+					url: "http://localhost/esenceweb_cart_task/API/Cart/addProductToCart",
+					data: { uidProductFK: rowData.uidPK, nQuantity: 1 }
+				})
+				.done(function(rsp) {
+					console.log(rsp)
+				});
+
 			})
 		},
 		(err) => {

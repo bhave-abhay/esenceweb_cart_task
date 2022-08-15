@@ -48,7 +48,7 @@ class SessionModel extends Model
         return $activeSession;
     }
 
-    private function isSessionActive($sessionInfo)
+    public function isSessionActive($sessionInfo)
     {
         if(( $sessionInfo['bStatus'] & StatusConstants::ACTIVE)!=0) {
             $dtCurrent =  Time::Now('Europe/London');

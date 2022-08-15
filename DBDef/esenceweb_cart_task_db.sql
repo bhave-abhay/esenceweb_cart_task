@@ -31,6 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `MTCartProduct` (
   `uidPK` char(32) CHARACTER SET ascii NOT NULL,
   `uidSalt` char(32) CHARACTER SET ascii NOT NULL,
+  `bStatus` smallint(6) NOT NULL,
   `uidCartFK` char(32) CHARACTER SET ascii NOT NULL,
   `uidProductFK` char(32) CHARACTER SET ascii NOT NULL,
   `rPrice` decimal(5,2) UNSIGNED NOT NULL,

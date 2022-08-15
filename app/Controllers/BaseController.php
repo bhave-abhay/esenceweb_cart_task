@@ -55,9 +55,9 @@ abstract class BaseController extends Controller
         $session = session();
         if($session->has('session')) {
             $userData = $session->get('session');
-            echo "<hr><pre>";
-            print_r($userData);
-            echo "</pre><hr>";
+            // echo "<hr><pre>";
+            // print_r($userData);
+            // echo "</pre><hr>";
             $arrData['arrPageData']['session'] = $userData;
             $arrData['arrHeadData']['session'] = $userData;
         }

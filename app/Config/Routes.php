@@ -45,6 +45,11 @@ $routes->post('/API/Auth/login', 'API\Auth::login');
 $routes->get('/API/Auth/logout', 'API\Auth::logout');
 
 $routes->resource('/API/Products', ['controller' => 'API\Products']);
+
+$routes->get('/API/Cart/myCart', 'API\Cart::getMyCart');
+$routes->post('/API/Cart/addProductToCart', 'API\Cart::addProductToCart');
+$routes->post('/API/Cart/removeProductFromCart', 'API\Cart::removeProductFromCart');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
