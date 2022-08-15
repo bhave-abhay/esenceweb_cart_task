@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "011630a2-4e15-40c1-bd3d-99ef7b9986ee",
+		"name": "esenceweb_task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetProductList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/esenceweb_cart_task/API/Products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"esenceweb_cart_task",
+						"API",
+						"Products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostToProductList",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/esenceweb_cart_task/API/Products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"esenceweb_cart_task",
+						"API",
+						"Products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteProductList",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sName",
+							"value": "Banana",
+							"type": "default"
+						},
+						{
+							"key": "rPrice",
+							"value": "6",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/esenceweb_cart_task/API/Products/86a915166aee46fe9d4089bf78557b51",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"esenceweb_cart_task",
+						"API",
+						"Products",
+						"86a915166aee46fe9d4089bf78557b51"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutProductList",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/esenceweb_cart_task/API/Products/21a426d4ee0e446f93e9eb3b017e79c5?sName=Peach&rPrice=26",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"esenceweb_cart_task",
+						"API",
+						"Products",
+						"21a426d4ee0e446f93e9eb3b017e79c5"
+					],
+					"query": [
+						{
+							"key": "sName",
+							"value": "Peach"
+						},
+						{
+							"key": "rPrice",
+							"value": "26"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
