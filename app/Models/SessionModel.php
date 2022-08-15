@@ -42,9 +42,6 @@ class SessionModel extends Model
                 break;
             }
         }
-        echo 'returning <pre>';
-        print_r($activeSession ?? "null");
-        echo '</pre>';
         return $activeSession;
     }
 

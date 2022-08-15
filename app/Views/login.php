@@ -1,7 +1,7 @@
 <div class="mb-5"></div>
 <div class="container center">
 	<div class="col-4 offset-4 align-middle">
-		<form id="formLogin" action="<?= site_url('API/Auth/login'); ?>" method="post">
+		<form id="formLogin">
 			<img class="mb-4" src="./Resources/Images/main-logo-black.png" alt="" width="200" height="57">
 			<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
@@ -21,7 +21,7 @@
 					<input type="checkbox" value="remember-me"> Remember me
 				</label>
 			</div> -->
-			<button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+			<button class="w-100 btn btn-lg btn-primary" id="btnLogin" type="button">Sign in</button>
 		</form>
 
 	</div>

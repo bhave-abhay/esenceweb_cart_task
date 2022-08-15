@@ -3,23 +3,29 @@
 namespace App\Controllers\API;
 
 use App\Controllers\BaseController;
+use CodeIgniter\API\ResponseTrait;
 
 class Auth extends BaseController
 {
+
+    use ResponseTrait;
+
     public function login()
     {
-		$creds = $this->request->getPost();
+        $sUserName = $this->request->getPost('sUserName');
+		$sPassHash = $this->request->getPost('sPassHash');
+
 		$respData = array();
 		if(
-			($creds['sUserName'] ?? '') != '' &&
-			($creds['sPassHash'] ?? '') != ''
+			($sUserName  ?? '') != '' &&
+			($sPassHash  ?? '') != ''
 		) {
 			//Success
             $modelSession = model('App\Models\SessionModel');
-            $activeSession = $modelSession->getActiveSessionByUserName($creds['sUserName']);
+            $activeSession = $modelSession->getActiveSessionByUserName($sUserName);
             if($activeSession==null) {
                 $activeSession = $modelSession->createSession(
-                    $creds['sUserName'],
+                    $sUserName,
                     $this->request->getUserAgent() . "|" . $this->request->getIpAddress()
                 );
             }
@@ -27,23 +33,17 @@ class Auth extends BaseController
 			$session = session();
 
 			$session->set('session', $activeSession);
-
-			$respData['status'] = [
-				'errcode' => 0,
-				'message' => 'SUCCESS'
-			];
-			$respData['data'] = [
-				'session' => $activeSession
-			];
+            $respData = [
+                'status' => 200,
+                'error'    => null,
+                'message' => 'SUCCESS',
+                'data' => [
+                    'session' => $activeSession
+                ]
+            ];
+            return $this->respond($respData);
 		}
-		else {
-			//Failure
-			$respData['status'] = [
-				'errcode' => 1000,
-				'message' => 'Login failed'
-			];
-		}
-        return $this->response->setJSON($respData);
+        return $this->failUnauthorized('Failed to log in');
     }
 
 	public function logout()

@@ -6,6 +6,13 @@ class Home extends BaseController
 {
     public function index()
     {
+        $session = session();
+        $sUserName = 'Guest';
+        if($session->has('session')) {
+            $sessionInfo = $session->get('session');
+            $sUserName = $sessionInfo['sUserName'];
+        }
+
         return $this->composePage(
             'welcome_message',
             [
@@ -14,7 +21,7 @@ class Home extends BaseController
                 ],
                 'arrPageData' => [
                     'sNavLink' => 'Home',
-                    'sData1' => 'Abhay'
+                    'sData1' => $sUserName
                 ],
                 'arrFootData' => [
                     'arrScript' => [
