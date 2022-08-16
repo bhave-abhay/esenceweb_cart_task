@@ -6,7 +6,15 @@ class Auth extends BaseController
 {
     public function index()
     {
-        return view('html_head', ['sPageTitle'=>'Login'])
+        return view(
+                'html_head', 
+                [
+                    'sPageTitle'=>'Login',
+                    'JSConfig' => [
+                        'BaseUrl' => base_url('/')
+                    ]
+                ]
+            )
             .view('login')
             .view('html_foot', [
                 'arrScript' => [
